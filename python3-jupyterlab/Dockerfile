@@ -1,5 +1,5 @@
-# minimal-notebook image as of 20180220
-FROM jupyter/minimal-notebook:92fe05d1e7e5
+# minimal-notebook image as of 20180402
+FROM jupyter/minimal-notebook:8d9388cac562
 
 # make sure apt is up to date
 USER root
@@ -26,4 +26,5 @@ COPY requirements.txt /tmp/
 RUN pip install --requirement /tmp/requirements.txt
 RUN jupyter labextension install @jupyterlab/plotly-extension
 RUN jupyter labextension install jupyterlab_bokeh
+RUN jupyter labextension install @jupyterlab/geojson-extension
 COPY . /tmp/
